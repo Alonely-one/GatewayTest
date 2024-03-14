@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+  datasource:
+    url: jdbc:mysql://192.168.106.102:3306/test
+    username: root
+    password: root
