@@ -1,7 +1,16 @@
 spring:
   application:
     name: gateway
-  datasource:
-    url: jdbc:mysql://192.168.106.102:3306/test
-    username: root
-    password: root
+  cloud:
+    gateway:
+      routes:
+        - id: system
+          uri: http://localhost:8091/system
+          predicates:
+            - Path = /system
+        - id: custom
+          uri: http://localhost:8092/custom
+          predicates:
+            - Path = /custom
+server:
+  port: 8099
