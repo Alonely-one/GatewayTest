@@ -4,13 +4,16 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: system
-          uri: http://localhost:8091/system
-          predicates:
-            - Path = /system
-        - id: custom
-          uri: http://localhost:8092/custom
-          predicates:
-            - Path = /custom
+      - id: system
+        uri: http://localhost:8091
+        predicates:
+        - Path=/system/**
+      - id: custom
+        uri: http://localhost:8092
+        predicates:
+        - Path = /custom/**
 server:
   port: 8099
+logging:
+  level:
+    root: info
